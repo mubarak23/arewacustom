@@ -31,5 +31,5 @@ Route::group(['middleware' => 'auth:api'], function(){
 	Route::patch('products/{product}/units/add','ProductController@updateUnits');
     Route::patch('orders/{order}/deliver','OrderController@deliverOrder');
     Route::resource('/orders', 'OrderController');
-    Route::resource('/products', 'ProductController')->except(['index','show'])
-})
+    Route::resource('/products', 'ProductController')->except(['index','show']);
+});

@@ -34,15 +34,15 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProductRequest, $request)
+    public function store(StoreProductRequest $request)
     {
-        $product = Product::create({
+        $product = Product::create([
             'name' => $request->name,
             'description' => $request->description,
             'units' => $request->units,
             'price' => $request->price,
             'image' => $request->image
-        });
+        ]);
 
         return response()->json([
                 'status' => (bool) $product,
@@ -101,7 +101,7 @@ class ProductController extends Controller
 
     }
 
-    public function updateUnits(Request $request, Product, $product){
+    public function updateUnits(Request $request, Product $product){
         $product->units = $product->units + $request->get('units');
         $product->save();
         return response()->json([
@@ -125,6 +125,6 @@ class ProductController extends Controller
             'status' => $status,
             'message' => $status ? 'Product Deleted' : 'Error Deleting Product'
         ]);
-        
+
     }
 }

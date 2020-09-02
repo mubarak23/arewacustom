@@ -22,7 +22,7 @@ class OrderController extends Controller
 
 
     public function deliverOrder(Order $order){
-        $order->is_delivered = true,
+        $order->is_delivered = true;
         $status = $order->save();
         return response()->json([
             'status' => $status,
@@ -47,7 +47,7 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreOrderRequest, $request)
+    public function store(StoreOrderRequest $request)
     {
         //
         $order = Order::create([
@@ -60,7 +60,7 @@ class OrderController extends Controller
             'status' => (bool)$order,
             'data' => $order,
             'message' => $order ? 'Order Created' : 'Error Creating Order'
-        ])
+        ]);
     }
 
     /**
@@ -118,6 +118,6 @@ class OrderController extends Controller
         return response()->json([
             'status' => $status,
             'message' => $status ? 'Order Deleted' : 'Error Deleteing Order'
-            ])
+            ]);
     }
 }

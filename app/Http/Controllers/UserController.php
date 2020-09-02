@@ -44,4 +44,13 @@ class UserController extends Controller
     	return response()->json(User::with(['orders'])->get());
     }
 
+    public function show(User $user){
+    	return response()->json($user, 200);
+    }
+
+    public function showOrders(User $user)
+        {
+            return response()->json($user->orders()->with(['product'])->get());
+        }
+
 }

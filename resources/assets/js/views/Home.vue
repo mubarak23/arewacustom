@@ -12,8 +12,7 @@
             <div
               class="col-md-4 product-box"
               v-for="(product,index) in products"
-              @key="index"
-              v-bind="product.id"
+              :key="index"
             >
               <router-link :to="{ path: '/products/'+product.id}">
                 <img :src="product.image" :alt="product.name" />

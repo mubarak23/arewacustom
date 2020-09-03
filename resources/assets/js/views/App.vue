@@ -58,7 +58,7 @@ export default {
             localStorage.removeItem('bigStore.jwt')
             localStorage.removeItem('bigStore.user')
             this.change()
-            this.$router.push(/)
+            this.$router.push('/')
         }
     }
 }
